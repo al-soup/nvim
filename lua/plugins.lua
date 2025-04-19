@@ -1,5 +1,3 @@
--- Complete plugin management and configuration
-
 -- Auto-install packer if not installed
 local ensure_packer = function()
   local fn = vim.fn
@@ -21,9 +19,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  
-  -- JavaScript syntax highlighting
-  use 'jelera/vim-javascript-syntax'
   
   -- Status line
   use 'itchyny/lightline.vim'
@@ -102,6 +97,18 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Improve highlighting for all languages
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
+
+  use "nvim-lua/plenary.nvim" -- Dependency for telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   -- ====================
   -- PLUGIN CONFIGURATION
   -- ====================
@@ -123,12 +130,11 @@ return require('packer').startup(function(use)
   -- rust.vim
   -- --------
   vim.g.rustfmt_autosave = 1
-  
-  -- -----------------
-  -- vim-svelte-plugin
-  -- -----------------
-  -- enable syntax
-  vim.g.vim_svelte_plugin_load_full_syntax = 1
+
+  -- ----------
+  -- ranger.vim
+  -- ----------
+  vim.g.ranger_map_keys = 0
   
   -- ------
   -- vim-go
@@ -139,6 +145,7 @@ return require('packer').startup(function(use)
   
   -- Enable rainbow brackets in all files
   vim.g.rainbow_active = 1
+
   
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap then
