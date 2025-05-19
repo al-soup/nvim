@@ -142,6 +142,7 @@ return require('packer').startup(function(use)
   -- Disable some of the shortcuts from the plugin to stop interferance with my
   -- defaults
   vim.g.go_def_mapping_enabled = 0
+  vim.g.go_doc_keywordprg_enabled = 0
   
   -- Enable rainbow brackets in all files
   vim.g.rainbow_active = 1
