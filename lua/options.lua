@@ -5,6 +5,9 @@
 -- Activate line numbers
 vim.opt.number = true
 
+-- Prevent sign column from jumping
+vim.opt.signcolumn = "yes"
+
 -- Set relative line number
 -- vim.opt.relativenumber = true
 -- Activate light status bar
