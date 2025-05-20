@@ -35,6 +35,10 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 -- Move multiple selected lines up with K
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- Cycle through buffers
+vim.keymap.set('n', '<Leader><Leader>', ":bnext<CR>")
+
+
 -- ===================
 -- PLUGINS KEYBINDINGS
 -- ===================
